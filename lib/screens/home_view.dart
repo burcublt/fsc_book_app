@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fsc_book_app/screens/home_list_page.dart';
 import 'package:fsc_book_app/screens/splash_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HomeView extends StatefulWidget {
   @override
@@ -7,30 +10,37 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
-  List<Tab> _tabList = [
-    Tab(
-      text: "Magazines",
-    ),
-    Tab(
-      text: "Books",
-    ),
-    Tab(
-      text: "Newslats",
-    ),
-    Tab(
-      text: "Audiobook",
-    )
+  
+
+  int _selectedIndex = 0;
+  final screens = [
+    const HomeListPage(),
+    const HomeListPage(),
+    const HomeListPage(),
+    const HomeListPage()
   ];
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 4, vsync: this);
-
+    List<Tab> _tabList = [
+    Tab(
+      text: AppLocalizations.of(context).fantasy,
+    ),
+    Tab(
+      text: AppLocalizations.of(context).classisc,
+    ),
+    Tab(
+      text: AppLocalizations.of(context).history,
+    ),
+    Tab(
+      text: AppLocalizations.of(context).religion
+    )
+  ];
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: bottomNavigationWidget(),
       appBar: AppBar(
-        leading: Icon(Icons.menu),
+        leading: const Icon(Icons.menu),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
@@ -41,41 +51,40 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           )
         ],
       ),
-      body: ListView(
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              tabBarWidget(_tabController),
-              tabBarChildrenWidget(_tabController)
-            ],
-          )
-        ],
-      ),
+      body: screens[_selectedIndex]
     );
   }
 
   Widget bottomNavigationWidget() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(30), topLeft: Radius.circular(30)),
       ),
-      child: BottomNavigationBar(items: [
+      child: BottomNavigationBar
+      (
+        showUnselectedLabels: true,
+        selectedLabelStyle: const TextStyle(fontFamily: 'ReadexRegular'),
+        unselectedLabelStyle: const TextStyle(fontFamily: 'ReadexLight'),
+        currentIndex: _selectedIndex,
+        onTap: (index){
+          setState(() {
+          _selectedIndex = index;
+          });
+        },
+        items:   <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: const Icon(Icons.home),
+          label: AppLocalizations.of(context).home,
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Home')
+        BottomNavigationBarItem(icon:const Icon(Icons.favorite), label: AppLocalizations.of(context).favorite),
+        BottomNavigationBarItem(icon:const Icon(Icons.shop), label: AppLocalizations.of(context).shop),
+        BottomNavigationBarItem(icon:const Icon(Icons.settings), label: AppLocalizations.of(context).settings)
       ]),
     );
   }
 
-  Widget tabBarWidget(_tabController) {
+  /*Widget tabBarWidget(_tabController) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 20,
       child: TabBar(
@@ -86,7 +95,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           indicatorColor: Colors.transparent,
           tabs: _tabList),
     );
-  }
+  }*/
 
   Widget tabBarChildrenWidget(
     _tabController,

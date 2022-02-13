@@ -33,6 +33,7 @@ class _SplashViewState extends State<SplashView> {
           Text(
             AppLocalizations.of(context).splash_title,
             style: const TextStyle(
+              fontFamily: 'ReadexBold',
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87),
@@ -41,6 +42,7 @@ class _SplashViewState extends State<SplashView> {
           Text(
             AppLocalizations.of(context).splash_description,
             style: const TextStyle(
+              fontFamily: 'ReadexLight',
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87),
@@ -60,8 +62,9 @@ class _SplashViewState extends State<SplashView> {
                 child: Text(
                   AppLocalizations.of(context).splash_button_title,
                   style: const TextStyle(
-                      fontSize: 12,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'ReadexLight',
                       color: Colors.black87),
                 ),
               ),

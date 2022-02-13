@@ -1,5 +1,18 @@
 {
     "splash_title":"Read Your \nFavorite books",
     "splash_description": "We've put together most books so, \nYou can find and enjoy your favorite books.",
-    "splash_button_title": "Get started"
+    "splash_button_title": "Get started",
+    "fantasy": "Fantasy",
+    "biography": "Biography",
+    "classisc":"Classisc",
+    "history": "History",
+    "religion":"Religion",
+    "home": "Home",
+    "favorite":"Favorites",
+    "shop":"Shop",
+    "settings":"Settings",
+    "shop_title":"%40 off coupon for your second shop",
+    "shop_description":"wait until 3rd march",
+    "trending_book":"Trending Book",
+    "view_all":"View all"
 }

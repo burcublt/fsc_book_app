@@ -1,5 +1,18 @@
 {
     "splash_title":"Favori Kitabını Oku",
     "splash_description": "Çoğu kitabı bir araya getirdik.\nBöylelikle favori kitabını bulup keyfini çıkarabilirsin.",
-    "splash_button_title": "Başla"
+    "splash_button_title": "Başla",
+    "fantasy": "Fantazi",
+    "biography": "Biyografi",
+    "classisc":"Klasik",
+    "history": "Tarih",
+    "religion":"Din",
+    "home": "Anasayfa",
+    "favorite":"Favoriler",
+    "shop":"Alışveriş",
+    "settings":"Ayarlar",
+    "shop_title":"2.Alışverinizde %40 indirim kuponu",
+    "shop_description":"3 marta kadar bekleyin",
+    "trending_book":"Trend Kitaplar",
+    "view_all":"Hepsini Gör"
 }
